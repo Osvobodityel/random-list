@@ -3,15 +3,34 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>udupienie ucznia</title>
+	<title>Randomizer Moment</title>
 </head>
 <body>
-	<button onclick="losuj()">Losuj</button>
 	<script type="text/javascript">
-		var nazwiska = [0, 1, 2, 3, 4];
+		
+		var x;
+		function pytanie() {
+			losuj();
+			setTimeout(stop, 5000);
+		}
 
+		function losuj() {
+			x = setInterval(testOne, 100);
 
+			function testOne() {
+				var osoba = ["AKM", "AKS-...", "AK-100-Series", "SKS", "PP-19-01 Vityaz", "Rat", "Mosin", "PPSh-41", "Shotgun"];
+				var b = Math.round(Math.random()*8);
+				setTimeout(function () {
+					document.getElementById('pokaz').innerHTML=osoba[b];
+				}, 1000);
+			}
+		}
+
+		function stop() {
+			clearInterval(x);
+		}
 	</script>
-
+	<button onclick="pytanie()">Losuj</button>
+	<p id="pokaz"></p>
 </body>
 </html>
