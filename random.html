@@ -3,25 +3,25 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Randomizer Moment</title>
+	<title>Randomizer</title>
 </head>
 <body>
 	<script type="text/javascript">
 		
 		var x;
-		function pytanie() {
-			losuj();
+		function random() {
+			randomize();
 			setTimeout(stop, 5000);
 		}
 
-		function losuj() {
+		function randomize() {
 			x = setInterval(testOne, 100);
 
 			function testOne() {
-				var osoba = ["AKM", "AKS-...", "AK-100-Series", "SKS", "PP-19-01 Vityaz", "Rat", "Mosin", "PPSh-41", "Shotgun"];
+				var name = ["AKM", "AKS-...", "AK-100-Series", "SKS", "PP-19-01 Vityaz", "Rat", "Mosin", "PPSh-41", "Shotgun"];
 				var b = Math.round(Math.random()*8);
 				setTimeout(function () {
-					document.getElementById('pokaz').innerHTML=osoba[b];
+					document.getElementById('pokaz').innerHTML=name[b];
 				}, 1000);
 			}
 		}
@@ -30,7 +30,7 @@
 			clearInterval(x);
 		}
 	</script>
-	<button onclick="pytanie()">Losuj</button>
+	<button onclick="pytanie()">Randomize</button>
 	<p id="pokaz"></p>
 </body>
 </html>
